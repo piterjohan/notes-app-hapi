@@ -37,7 +37,7 @@ const getNoteByIdHandler = (request, h) => {
   }
 
   // note not found
-  const response = h.request({
+  const response = h.response({
     status: 'fail',
     message: 'Note tidak ditemukan',
   });
