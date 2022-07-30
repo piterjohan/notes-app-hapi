@@ -105,7 +105,6 @@ const addNoteHandler = (request, h) => {
  */
 const editNoteByIdHandler = (request, h) => {
   const { id } = request.params;
-
   const { title, tags, body } = request.payload;
   const updatedAt = new Date().toISOString();
 
@@ -113,7 +112,6 @@ const editNoteByIdHandler = (request, h) => {
   const index = notes.findIndex((note) => note.id === id);
 
   if (index !== -1) {
-    console.log('spread operator', ...notes[index]);
     notes[index] = {
       ...notes[index],
       title,
@@ -127,6 +125,7 @@ const editNoteByIdHandler = (request, h) => {
       message: 'Catatan berhasil diperbarui',
     });
     response.code(200);
+    return response;
   }
 
   // not success
